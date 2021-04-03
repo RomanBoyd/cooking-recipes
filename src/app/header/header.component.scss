@@ -1,0 +1,36 @@
+.main-header {
+  margin: 30px;
+  width: 640px;
+ }
+
+.main-navigation {
+  display: flex;
+
+ .logo {
+   margin-right: 10px;
+   padding: 20px;
+   font-size: 25px;
+   font-weight: bold;
+   color: crimson;
+   &:hover {
+       color: tomato;
+   }
+ }
+
+  .site-navigation {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    list-style: none;
+    a {
+      display: block;
+      font-size: 17px;
+      text-transform: lowercase;
+      padding: 28px 0 0 0;
+      color: darkslategray;
+      &:hover {
+        color: tomato;
+      }
+    }
+  }
+}
