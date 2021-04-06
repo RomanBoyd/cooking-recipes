@@ -3,9 +3,10 @@ export class RecipesModel {
     description = '';
     imageUrl = '';
 
-    constructor(name: string, desription: string, imageUrl: string,) {
+    constructor(name: string, description: string, imageUrl: string) {
         this.name = name;
-        this.description = desription;
+        this.description = description;
         this.imageUrl = imageUrl;
-    };
+    }
 }
+const recipes = new RecipesModel('Название', 'Описание', 'Ссылка на изображение');
