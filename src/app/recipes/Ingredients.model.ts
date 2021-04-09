@@ -1,7 +1,7 @@
 export class IngredientsModel {
-  name = '';
-  amount: number = '';
-  unit = '';
+  name: string;
+  amount: number;
+  unit: string;
 
   constructor(name: string, amount: number, unit: string) {
     this.name = name;

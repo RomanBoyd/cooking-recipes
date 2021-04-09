@@ -1,12 +1,20 @@
-export class RecipesModel {
-    name = '';
-    description = '';
-    imageUrl = '';
+import { IngredientsModel } from './Ingredients.model';
 
-    constructor(name: string, description: string, imageUrl: string) {
-        this.name = name;
-        this.description = description;
-        this.imageUrl = imageUrl;
-    }
+export class RecipesModel {
+  name: string;
+  description: string;
+  imageUrl: string;
+  ingredients: IngredientsModel[];
+
+  constructor(
+    name: string,
+    description: string,
+    imageUrl: string,
+    ingredients: IngredientsModel[]
+  ) {
+    this.name = name;
+    this.description = description;
+    this.imageUrl = imageUrl;
+    this.ingredients = ingredients;
+  }
 }
-const recipes = new RecipesModel('Название', 'Описание', 'Ссылка на изображение');
