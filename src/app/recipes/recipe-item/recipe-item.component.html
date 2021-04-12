@@ -18,4 +18,27 @@
       </a>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table" *ngFor="let ingredient of recipes">
+        <tr class="list-group-item" *ngFor="let el of ingredient.ingredients">
+          <td class="table">{{el.name}}</td>
+          <td class="table">{{el.amount}}</td>
+          <td class="table">{{el.unit}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form>
+        <input type="text" class="form-control" placeholder="Название ингредиента">
+        <input type="number" class="form-control" placeholder="Количество">
+        <input type="text" class="form-control" placeholder="Единица измерения">
+        <button class="btn btn-success">Добавить</button>
+        <button class="btn btn-success">Удалить</button>
+        <button class="btn btn-success">Очистить</button>
+      </form>
+    </div>
+  </div>
 </div>
