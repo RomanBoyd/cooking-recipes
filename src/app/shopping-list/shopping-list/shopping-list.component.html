@@ -1,1 +1,11 @@
-<p>shopping-list works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table" *ngFor="let ingredient of recipe.recipes">
+      <tr class="list-group-item" *ngFor="let el of ingredient.ingredients">
+        <td class="table">{{el.name}}</td>
+        <td class="table">{{el.amount}}</td>
+        <td class="table">{{el.unit}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
