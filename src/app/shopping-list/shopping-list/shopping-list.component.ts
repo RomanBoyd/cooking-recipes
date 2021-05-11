@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipeItemComponent} from '../../recipes/recipe-item/recipe-item.component';
 
 @Component({
   selector: 'app-shopping-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit {
+  recipe = new RecipeItemComponent();
 
   constructor() { }
 
