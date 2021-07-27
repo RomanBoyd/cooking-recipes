@@ -1,0 +1,31 @@
+
+<mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-description>
+      Поиск рецептов
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-action-row>
+    <mat-form-field appearance="fill">
+      <mat-label>Любая категория</mat-label>
+      <mat-select>
+        <mat-option value="breakfast">Завтраки</mat-option>
+        <mat-option value="food">Основные блюда</mat-option>
+        <mat-option value="soup">Супы</mat-option>
+        <mat-option value="salad">Салаты</mat-option>
+        <mat-option value="bakery">Выпечка</mat-option>
+        <mat-option value="sauce">Соусы</mat-option>
+        <mat-option value="drinks">Напитки</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button color="accent" >
+      Подобрать рецепты
+    </button>
+    <mat-form-field appearance="fill">
+      <mat-label>Любая категория</mat-label>
+      <input value="Dance" >
+    </mat-form-field>
+    <button mat-stroked-button color="accent">Show snack-bar</button>
+  </mat-action-row>
+</mat-expansion-panel>
