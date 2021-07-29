@@ -8,6 +8,7 @@ import {MaterialModule} from './shared/material.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './content/search/search.component';
+import { RecipesComponent } from './content/recipes/recipes.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SearchComponent } from './content/search/search.component';
     HeaderComponent,
     FooterComponent,
     SearchComponent,
+    RecipesComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,10 @@
   position: relative;
   text-transform: uppercase;
   font-size: 0.7em;
+  color: #FFFFFF;
+}
+.nav-link:focus {
+  color: #2bbbff;
 }
 
 .nav-svg {

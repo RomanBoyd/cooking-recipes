@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {allRecipes} from '../../mocks/recipes';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cooking-recipes';
+  public recipes = allRecipes;
 }
