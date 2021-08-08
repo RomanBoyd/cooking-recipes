@@ -1,5 +1,8 @@
-<mat-grid-list *ngFor="let recipe of recipes" cols="3" rowHeight="1.7:1">
-  <mat-grid-tile><img [ngStyle]="{'height': '180px'}" [src]="recipe.strMealSmallImg" [alt]="recipe.strMeal"></mat-grid-tile>
-  <mat-grid-tile [ngStyle]="{'font-size': '25px'}">{{recipe.strMeal}}</mat-grid-tile>
-  <mat-grid-tile>{{recipe.strIngredients.length + 1}} ингредиентов</mat-grid-tile>
-</mat-grid-list>
+<div *ngFor="let recipe of recipes">
+      <img
+        [routerLink]="['/recipe', recipe.idMeal]"
+        [ngStyle]="{'height': '180px'}"
+        [src]="recipe.strMealThumb"
+        [alt]="recipe.strMeal">
+      {{recipe.strMeal}}
+</div>

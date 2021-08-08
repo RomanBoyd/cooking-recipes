@@ -7,6 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+
 const material = [
   MatToolbarModule,
   MatButtonModule,
@@ -19,6 +20,7 @@ const material = [
 
 @NgModule({
   imports: [material],
-  exports: [material]
+  exports: [material],
+  declarations: []
 })
 export class MaterialModule { }
