@@ -1,1 +1,41 @@
-<p>add-recipe works!</p>
+<div class="add-recipe">
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Название рецепта</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Выбрать категорию</mat-label>
+    <mat-select>
+      <mat-option value="one">Завтрак</mat-option>
+      <mat-option value="two">Основное блюдо</mat-option>
+      <mat-option value="three">Суп</mat-option>
+      <mat-option value="four">Салат</mat-option>
+      <mat-option value="five">Выпечка</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ингредиент</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Количество</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-raised-button>Добавить ингредиент</button>
+  <h2>Инструкция приготовления</h2>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Шаг 1</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  <button mat-raised-button>Добавить шаг</button>
+  <p></p>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Добавить ссылку на фото</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="accent" class="add-button">Добавить рецепт</button>
+</form>
+</div>

@@ -4,14 +4,20 @@ import {RecipesComponent} from './content/recipes/recipes.component';
 import {OneRecipeComponent} from './content/one-recipe/one-recipe.component';
 import {AddRecipeComponent} from './content/add-recipe/add-recipe.component';
 import {Page404Component} from './content/page404/page404.component';
+import {RecipeResolverService} from './shared/services/recipe-resolver.service';
+
 
 
 const routes: Routes = [
-  { path: '', component: RecipesComponent },
-  { path: 'recipe/:id', component: OneRecipeComponent },
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  { path: 'recipes', component: RecipesComponent },
+  { path: 'recipes/:id', component: OneRecipeComponent,
+    resolve: {
+      recipes: RecipeResolverService
+    }
+  },
   { path: 'add-recipe', component: AddRecipeComponent },
-  { path: 'page404', component: Page404Component},
-  { path: '**', redirectTo: '/page404'},
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({

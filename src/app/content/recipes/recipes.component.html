@@ -1,8 +1,31 @@
-<div *ngFor="let recipe of recipes">
-      <img
-        [routerLink]="['/recipe', recipe.idMeal]"
-        [ngStyle]="{'height': '180px'}"
-        [src]="recipe.strMealThumb"
-        [alt]="recipe.strMeal">
-      {{recipe.strMeal}}
+<div class="grid-container">
+  <div class="recipe-search">
+    <mat-form-field appearance="outline">
+      <mat-label>Введите название блюда</mat-label>
+      <input matInput #searchField>
+    </mat-form-field>
+    <button (click)="search(searchField.value)" mat-stroked-button color="accent">Найти рецепт</button>
+  </div>
+  <h1 class="mat-h1">Рецепты</h1>
+  <mat-grid-list cols="3" rowHeight="350px" *ngIf="recipes; else loader">
+    <mat-grid-tile *ngFor="let recipe of recipes | recipesFilter: searchText" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card"
+                [routerLink]="['/recipes', recipe.id]"
+                matRipple
+                [matRippleCentered]="true">
+        <img mat-card-image
+          [src]="recipe.mealImg"
+          [alt]="recipe.name">
+        <mat-card-header>
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+          <mat-card-subtitle>{{recipe.ingredients.length | ingredient}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <ng-template #loader>
+    <div class="loader-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
 </div>
