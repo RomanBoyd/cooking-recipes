@@ -1,8 +1,8 @@
 <div class="add-recipe">
-<form class="example-form">
+<form class="example-form" [formGroup]="form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Название рецепта</mat-label>
-    <textarea matInput></textarea>
+    <textarea matInput formControlName="name"></textarea>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Выбрать категорию</mat-label>
@@ -14,28 +14,37 @@
       <mat-option value="five">Выпечка</mat-option>
     </mat-select>
   </mat-form-field>
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Ингредиент</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Количество</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-  </tr></table>
-  <button mat-raised-button>Добавить ингредиент</button>
-  <h2>Инструкция приготовления</h2>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Шаг 1</mat-label>
-    <textarea matInput></textarea>
+  <table class="example-full-width" cellspacing="0"
+         formArrayName="ingredients"
+         *ngFor="let ingredient of form.get('ingredients')['controls']; let i = index;">
+    <tr [formGroupName]="i">
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ингредиент</mat-label>
+        <input matInput formControlName="ingredient">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Количество</mat-label>
+        <input matInput formControlName="measure">
+      </mat-form-field></td>
+    </tr>
+  </table>
+  <button (click)="addIngredient()" mat-raised-button>Добавить ингредиент</button>
+  <button (click)="deleteIngredient()" mat-raised-button [ngStyle]="{'margin-left': '10px'}">Удалить ингредиент</button>
+  <h4>Инструкция приготовления</h4>
+  <mat-form-field class="example-full-width" appearance="fill"
+                  formArrayName="steps"
+                  *ngFor="let step of form.get('steps')['controls']; let i = index;">
+    <div [formGroupName]="i">
+      <mat-label>Шаг {{i+1}}</mat-label>
+      <textarea matInput formControlName="step"></textarea>
+    </div>
   </mat-form-field>
-  <button mat-raised-button>Добавить шаг</button>
-  <p></p>
+  <button (click)="addStep()" mat-raised-button [ngStyle]="{'margin-bottom': '20px'}">Добавить шаг</button>
+  <button (click)="deleteStep()" mat-raised-button [ngStyle]="{'margin-left': '10px'}">Удалить шаг</button>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Добавить ссылку на фото</mat-label>
-    <textarea matInput></textarea>
+    <textarea matInput formControlName="image"></textarea>
   </mat-form-field>
-  <button mat-raised-button color="accent" class="add-button">Добавить рецепт</button>
+  <button [disabled]="!form.valid" (click)="addRecipe()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom': '20px'}">Добавить рецепт</button>
 </form>
 </div>
