@@ -4,9 +4,18 @@
     <mat-label>Название рецепта</mat-label>
     <textarea matInput formControlName="name"></textarea>
   </mat-form-field>
+  <div [ngStyle]="{'margin-bottom': '15px'}"
+    *ngIf="(
+              form.get('name').dirty ||
+              form.get('name').touched
+             ) &&
+             form.get('name').invalid"
+  >
+    Введите название рецепта
+  </div>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Выбрать категорию</mat-label>
-    <mat-select>
+    <mat-select formControlName="category">
       <mat-option value="one">Завтрак</mat-option>
       <mat-option value="two">Основное блюдо</mat-option>
       <mat-option value="three">Суп</mat-option>
@@ -32,19 +41,28 @@
   <button (click)="deleteIngredient()" mat-raised-button [ngStyle]="{'margin-left': '10px'}">Удалить ингредиент</button>
   <h4>Инструкция приготовления</h4>
   <mat-form-field class="example-full-width" appearance="fill"
-                  formArrayName="steps"
-                  *ngFor="let step of form.get('steps')['controls']; let i = index;">
-    <div [formGroupName]="i">
+                  formArrayName="description"
+                  *ngFor="let step of form.get('description')['controls']; let i = index;">
+    <ng-container [formGroupName]="i">
       <mat-label>Шаг {{i+1}}</mat-label>
       <textarea matInput formControlName="step"></textarea>
-    </div>
+    </ng-container>
   </mat-form-field>
-  <button (click)="addStep()" mat-raised-button [ngStyle]="{'margin-bottom': '20px'}">Добавить шаг</button>
-  <button (click)="deleteStep()" mat-raised-button [ngStyle]="{'margin-left': '10px'}">Удалить шаг</button>
+  <button (click)="addDescription()" mat-raised-button [ngStyle]="{'margin-bottom': '20px'}">Добавить шаг</button>
+  <button (click)="deleteDescription()" mat-raised-button [ngStyle]="{'margin-left': '10px'}">Удалить шаг</button>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Добавить ссылку на фото</mat-label>
-    <textarea matInput formControlName="image"></textarea>
+    <textarea matInput formControlName="mealImg"></textarea>
   </mat-form-field>
-  <button [disabled]="!form.valid" (click)="addRecipe()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom': '20px'}">Добавить рецепт</button>
+  <div [ngStyle]="{'margin-bottom': '15px'}"
+    *ngIf="(
+              form.get('mealImg').dirty ||
+              form.get('mealImg').touched
+             ) &&
+             form.get('mealImg').invalid"
+  >
+    Только URL-адреса, обслуживаемые по HTTPS.
+  </div>
+  <button (click)="addRecipe()" [disabled]="form.invalid" mat-raised-button color="accent" [ngStyle]="{'margin-bottom': '20px'}">Добавить рецепт</button>
 </form>
 </div>
