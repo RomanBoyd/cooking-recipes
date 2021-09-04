@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IRecipe, RecipeService} from '../../shared/services/recipe.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-recipes',
@@ -12,18 +13,19 @@ export class RecipesComponent implements OnInit{
     private recipeService: RecipeService
   ) {}
 
-  recipes: IRecipe[];
+  recipes: Observable<IRecipe[]> | undefined;
 
   searchText = '';
 
 
   ngOnInit(): void {
-    this.recipeService.getRecipes()
-      .subscribe(recipes => this.recipes = recipes);
+    this.recipes = this.recipeService.getRecipes();
   }
 
   search(text: string): void {
-    this.searchText = text;
+    setTimeout(() => {
+      this.searchText = text;
+    }, 1000);
   }
 
 }

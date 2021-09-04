@@ -6,7 +6,7 @@ import {catchError} from 'rxjs/operators';
 
 
 export interface IRecipe {
-  id: string;
+  _id: string;
   name: string;
   category: string;
   description: Instruction[];
@@ -48,21 +48,21 @@ export class RecipeService {
   }
 
   public getRecipes(): Observable<IRecipe[]> {
-    return this.http.get<IRecipe[]>('/api/recipes/')
+    return this.http.get<IRecipe[]>(`${this.baseUrl}recipes`)
       .pipe(
         catchError(this.handleError('getRecipes', []))
       );
   }
 
   public getRecipe(id): Observable<IRecipe> {
-     return this.http.get<IRecipe>('/api/recipes/' + id)
+     return this.http.get<IRecipe>(`${this.baseUrl}recipes/` + id)
        .pipe(
          catchError(this.handleError<IRecipe>(`getRecipe id=${id}`))
        );
   }
 
   public addRecipe(recipe: IRecipe): Observable<IRecipe> {
-    return this.http.post<IRecipe>('/api/recipes/', recipe, httpOptions)
+    return this.http.post<IRecipe>(`${this.baseUrl}recipes`, recipe, httpOptions)
       .pipe(
         catchError(this.handleError<IRecipe>('addRecipe'))
       );

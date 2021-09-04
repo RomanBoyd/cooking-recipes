@@ -15,8 +15,6 @@ import {AppRoutingModule} from './app-routing.module';
 import { AddRecipeComponent } from './content/add-recipe/add-recipe.component';
 import { Page404Component } from './content/page404/page404.component';
 import {BASE_URL_TOKEN, baseUrl} from './config';
-import { BackendService} from './shared/services/backend.service';
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 
 
 @NgModule({
@@ -37,7 +35,6 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
     MaterialModule,
     SharedModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(BackendService),
     ReactiveFormsModule
   ],
   providers: [

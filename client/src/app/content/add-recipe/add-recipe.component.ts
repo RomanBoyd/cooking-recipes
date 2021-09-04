@@ -20,7 +20,6 @@ export class AddRecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10),
       name: this.fb.control('', [Validators.required]),
       category: this.fb.control('', [Validators.required]),
       ingredients: this.fb.array([this.createIngredient()]),

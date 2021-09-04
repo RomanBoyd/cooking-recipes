@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {IngredientPipe} from './pipes/ingredient.pipe';
 import {FormsModule} from '@angular/forms';
-import {RecipeResolverService} from './services/recipe-resolver.service';
 import {RecipesFilterPipe} from './pipes/recipes-filter.pipe';
 
 
@@ -19,7 +18,6 @@ import {RecipesFilterPipe} from './pipes/recipes-filter.pipe';
     RecipesFilterPipe
   ],
   providers: [
-    RecipeResolverService
   ]
 
 })

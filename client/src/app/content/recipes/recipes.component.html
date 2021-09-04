@@ -2,15 +2,14 @@
   <div class="recipe-search">
     <mat-form-field appearance="outline">
       <mat-label>Введите название блюда</mat-label>
-      <input matInput #searchField>
+      <input matInput #searchField (input)="search(searchField.value)">
     </mat-form-field>
-    <button (click)="search(searchField.value)" mat-stroked-button color="accent">Найти рецепт</button>
   </div>
   <h1 class="mat-h1">Рецепты</h1>
   <mat-grid-list cols="3" rowHeight="350px" *ngIf="recipes; else loader">
-    <mat-grid-tile *ngFor="let recipe of recipes | recipesFilter: searchText" [colspan]="1" [rowspan]="1">
+    <mat-grid-tile *ngFor="let recipe of recipes | async | recipesFilter: searchText" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card"
-                [routerLink]="['/recipes', recipe.id]"
+                [routerLink]="['/recipes', recipe._id]"
                 matRipple
                 [matRippleCentered]="true">
         <img mat-card-image
