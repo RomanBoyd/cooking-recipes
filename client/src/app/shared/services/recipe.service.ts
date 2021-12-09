@@ -38,9 +38,7 @@ export class RecipeService {
     ) { }
 
 
-  // tslint:disable-next-line:typedef
-  private handleError<T>(operation = 'operation', result?: T) {
-    // tslint:disable-next-line:no-shadowed-variable
+  private handleError<T>(operation = 'operation', result?: T): any {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);
@@ -65,6 +63,12 @@ export class RecipeService {
     return this.http.post<IRecipe>(`${this.baseUrl}recipes`, recipe, httpOptions)
       .pipe(
         catchError(this.handleError<IRecipe>('addRecipe'))
+      );
+  }
+  public deleteRecipe(id): Observable<IRecipe> {
+    return this.http.delete<IRecipe>(`${this.baseUrl}recipes/` + id)
+      .pipe(
+        catchError(this.handleError<IRecipe>(`deleteRecipe`))
       );
   }
 }

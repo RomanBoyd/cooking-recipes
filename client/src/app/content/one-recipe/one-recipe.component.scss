@@ -1,5 +1,6 @@
 table {
   width: 100%;
+  position: relative;
 }
 .mat-stroked-button {
   margin-top: 15px;
@@ -7,4 +8,21 @@ table {
 
 .title-h2 {
   margin-top: 15px;
+}
+
+.delete-button {
+  position: absolute;
+  right: 15px;
+}
+
+.popup {
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  transform: translateX(-50%);
+  text-align: center;
+  button {
+    margin-right: 30px;
+    font-size: 18px;
+  }
 }

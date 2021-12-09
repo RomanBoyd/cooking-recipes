@@ -11,6 +11,8 @@ import {IRecipe, RecipeService} from '../../shared/services/recipe.service';
 export class OneRecipeComponent implements OnInit  {
   displayedColumns: string[] = ['item', 'cost'];
   recipe: IRecipe;
+  popup = false;
+  id: number;
 
   constructor(
     private recipeService: RecipeService,
@@ -19,16 +21,28 @@ export class OneRecipeComponent implements OnInit  {
   ) { }
 
   ngOnInit(): void {
-    let id;
     this.activatedRoute.params.subscribe(res => {
-      id = res.id;
-      this.recipeService.getRecipe(id).subscribe(data => {
+      this.id = res.id;
+      this.recipeService.getRecipe(this.id).subscribe(data => {
         this.recipe = data;
       });
     });
   }
 
   goBack(): void {
+    this.router.navigate(['/recipes']);
+  }
+
+  goPopup(): void {
+    this.popup = true;
+  }
+
+  closePopup(): void {
+    this.popup = false;
+  }
+
+  deleteRecipe(): void {
+    this.recipeService.deleteRecipe(this.id).subscribe();
     this.router.navigate(['/recipes']);
   }
 }

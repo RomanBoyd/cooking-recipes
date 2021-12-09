@@ -24,4 +24,10 @@
     </mat-card-content>
   </mat-card>
   <button mat-stroked-button color="basic" (click)="goBack()">Назад</button>
+  <button mat-stroked-button color="basic" class="delete-button" (click)="goPopup()">Удалить рецепт</button>
+  <mat-card class="popup" *ngIf="popup">
+    <h2>Вы действительно хотите удалить рецепт?</h2>
+    <button mat-stroked-button color="basic" (click)="deleteRecipe()">Да</button>
+    <button mat-stroked-button color="basic" (click)="closePopup()">Нет</button>
+  </mat-card>
 </mat-card>
